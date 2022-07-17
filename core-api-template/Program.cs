@@ -1,4 +1,5 @@
 ﻿using core_api_template.Helpers;
+using core_api_template.Middleware;
 using core_api_template.Services;
 using Microsoft.OpenApi.Models;
 using Serilog;
@@ -8,6 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((ctx, lc) => lc
     .WriteTo.Console()
     .ReadFrom.Configuration(ctx.Configuration));
+
+var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -93,13 +102,6 @@ if (app.Environment.IsDevelopment())
     app.MapControllers();
 }
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/error-development");
-}
-else
-{
-    app.UseExceptionHandler("/error");
-}
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.Run();
