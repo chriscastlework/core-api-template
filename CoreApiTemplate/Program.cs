@@ -39,7 +39,7 @@ builder.Services.AddSwaggerGen(option =>
         }
     });
 
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, "core-api-template.xml");
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, "CoreApiTemplate.xml");
     option.IncludeXmlComments(xmlPath);
     option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
