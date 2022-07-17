@@ -1,6 +1,6 @@
-namespace core_api_template.Entities;
-
 using System.Text.Json.Serialization;
+
+namespace core_api_template.Entities;
 
 /// <summary>
 /// User model

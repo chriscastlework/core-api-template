@@ -1,6 +1,6 @@
-namespace core_api_template.Models;
-
 using core_api_template.Entities;
+
+namespace core_api_template.Models;
 
 public class AuthenticateResponse
 {

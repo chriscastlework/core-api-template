@@ -1,10 +1,10 @@
-namespace core_api_template.Helpers;
-
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using core_api_template.Services;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+
+namespace core_api_template.Helpers;
 
 public class JwtMiddleware
 {

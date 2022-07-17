@@ -1,15 +1,15 @@
+ using System.IdentityModel.Tokens.Jwt;
+ using System.Security.Claims;
+ using System.Text;
+ using core_api_template.Entities;
+ using core_api_template.Helpers;
+ using core_api_template.Models;
+ using Microsoft.Extensions.Options;
+ using Microsoft.IdentityModel.Tokens;
+
  namespace core_api_template.Services;
 
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using core_api_template.Entities;
-using core_api_template.Helpers;
-using core_api_template.Models;
-
-public class UserService : IUserService
+ public class UserService : IUserService
 {
     // users hardcoded for simplicity, store in a db with hashed passwords in production applications
     private List<User> _users = new List<User>
