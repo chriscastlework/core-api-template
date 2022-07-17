@@ -1,4 +1,6 @@
-﻿namespace core_api_template;
+﻿namespace core_api_template.Entities;
+
+
 
 public class WeatherForecast
 {

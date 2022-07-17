@@ -1,4 +1,4 @@
-namespace core_api_template.Services;
+ namespace core_api_template.Services;
 
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -8,13 +8,6 @@ using System.Text;
 using core_api_template.Entities;
 using core_api_template.Helpers;
 using core_api_template.Models;
-
-public interface IUserService
-{
-    AuthenticateResponse Authenticate(AuthenticateRequest model);
-    IEnumerable<User> GetAll();
-    User GetById(int id);
-}
 
 public class UserService : IUserService
 {
@@ -49,6 +42,11 @@ public class UserService : IUserService
         return _users;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public User GetById(int id)
     {
         return _users.FirstOrDefault(x => x.Id == id);

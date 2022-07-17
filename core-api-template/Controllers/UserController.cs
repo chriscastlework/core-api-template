@@ -5,11 +5,12 @@ using core_api_template.Helpers;
 using core_api_template.Models;
 using core_api_template.Services;
 
+
 [ApiController]
 [Route("[controller]")]
 public class UsersController : ControllerBase
 {
-    private IUserService _userService;
+    private readonly IUserService _userService;
 
     public UsersController(IUserService userService)
     {
@@ -27,6 +28,10 @@ public class UsersController : ControllerBase
         return Ok(response);
     }
 
+    /// <summary>
+    /// Get the complete list of users
+    /// </summary>
+    /// <returns>List of user objects containing name </returns>
     [Authorize]
     [HttpGet]
     public IActionResult GetAll()

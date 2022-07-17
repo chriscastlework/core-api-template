@@ -10,9 +10,28 @@ builder.Host.UseSerilog((ctx, lc) => lc
     .ReadFrom.Configuration(ctx.Configuration));
 
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(option =>
 {
-    option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
+    option.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Description = "Equifinance api project",
+        Title = "Equifinance API",
+        Version = "v1",
+        Contact = new OpenApiContact
+        {
+            Name = "Example Contact",
+            Url = new Uri("https://example.com/contact")
+        },
+        License = new OpenApiLicense
+        {
+            Name = "Example License",
+            Url = new Uri("https://example.com/license")
+        }
+    });
+
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, "core-api-template.xml");
+    option.IncludeXmlComments(xmlPath);
     option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -72,6 +91,15 @@ if (app.Environment.IsDevelopment())
     app.UseMiddleware<JwtMiddleware>();
 
     app.MapControllers();
+}
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/error-development");
+}
+else
+{
+    app.UseExceptionHandler("/error");
 }
 
 app.Run();

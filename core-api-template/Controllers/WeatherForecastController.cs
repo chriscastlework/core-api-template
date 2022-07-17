@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using core_api_template.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace core_api_template.Controllers;
 
