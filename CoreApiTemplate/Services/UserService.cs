@@ -12,7 +12,7 @@
  public class UserService : IUserService
 {
     // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-    private List<User> _users = new List<User>
+    private readonly List<User> _users = new()
     {
         new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" }
     };
@@ -54,7 +54,7 @@
 
     // helper methods
 
-    private string generateJwtToken(User user)
+    private string? generateJwtToken(User user)
     {
         // generate token that is valid for 7 days
         var tokenHandler = new JwtSecurityTokenHandler();
