@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace core_api_template.Entities;
+namespace core_api_template.Services.UserModule.Entity;
 
 /// <summary>
 /// User model
@@ -12,6 +12,5 @@ public class User
     public string? LastName { get; init; } = "";
     public string? Username { get; init; } = "";
 
-    [JsonIgnore]
-    public string Password { get; init; } = "";
+    [JsonIgnore] public string Password { get; init; } = "";
 }

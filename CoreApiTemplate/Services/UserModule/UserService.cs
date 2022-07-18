@@ -3,16 +3,17 @@ using System.Security.Claims;
 using System.Text;
 using core_api_template.Entities;
 using core_api_template.Helpers;
-using core_api_template.Models;
+using core_api_template.Services.UserModule.Entity;
+using core_api_template.Services.UserModule.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace core_api_template.Services;
+namespace core_api_template.Services.UserModule;
 
 public class UserService : IUserService
 {
     // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-    private readonly List<User> _users = new()
+    private readonly List<User?> _users = new()
     {
         new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" }
     };
@@ -26,18 +27,18 @@ public class UserService : IUserService
 
     public AuthenticateResponse Authenticate(AuthenticateRequest model)
     {
-        var user = _users.SingleOrDefault(x => x.Username == model.Username && x.Password == model.Password);
+        var user = _users.SingleOrDefault(x => x?.Username == model.Username && x.Password == model.Password);
 
         // return null if user not found
-        if (user == null) return null;
+        if (user == null) return new AuthenticateResponse();
 
         // authentication successful so generate jwt token
-        var token = generateJwtToken(user);
+        var token = this.generateJwtToken(user);
 
         return new AuthenticateResponse(user, token);
     }
 
-    public IEnumerable<User> GetAll()
+    public IEnumerable<User?> GetAll()
     {
         return _users;
     }
@@ -47,9 +48,9 @@ public class UserService : IUserService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public User GetById(int id)
+    public User? GetById(int id)
     {
-        return _users.FirstOrDefault(x => x.Id == id);
+        return _users.FirstOrDefault(x => x?.Id == id);
     }
 
     // helper methods

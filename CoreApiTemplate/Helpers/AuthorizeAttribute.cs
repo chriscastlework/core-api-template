@@ -1,4 +1,5 @@
 using core_api_template.Entities;
+using core_api_template.Services.UserModule.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 

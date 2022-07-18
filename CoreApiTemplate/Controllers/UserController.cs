@@ -1,6 +1,8 @@
 ﻿using core_api_template.Helpers;
-using core_api_template.Models;
 using core_api_template.Services;
+using core_api_template.Services.UserModule;
+using core_api_template.Services.UserModule.Entity;
+using core_api_template.Services.UserModule.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace core_api_template.Controllers;
@@ -21,7 +23,7 @@ public class UsersController : ControllerBase
     {
         var response = _userService.Authenticate(model);
 
-        if (response == null)
+        if (response.Id == 0)
             return BadRequest(new { message = "Username or password is incorrect" });
 
         return Ok(response);

@@ -1,10 +1,12 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using core_api_template.Helpers;
 using core_api_template.Services;
+using core_api_template.Services.UserModule;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace core_api_template.Helpers;
+namespace core_api_template.Middleware;
 
 public class JwtMiddleware
 {
@@ -22,7 +24,7 @@ public class JwtMiddleware
         var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
         if (token != null)
-            AttachUserToContext(context, userService, token);
+            this.AttachUserToContext(context, userService, token);
 
         await _next(context);
     }

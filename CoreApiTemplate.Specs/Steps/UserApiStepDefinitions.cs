@@ -2,7 +2,8 @@
 using System.Net.Http.Headers;
 using System.Text.Json;
 using core_api_template.Entities;
-using core_api_template.Models;
+using core_api_template.Services.UserModule.Entity;
+using core_api_template.Services.UserModule.Models;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using NUnit.Framework;

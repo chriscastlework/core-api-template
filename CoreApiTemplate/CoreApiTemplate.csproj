@@ -20,5 +20,33 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\ApplicationErrorTestController.cs" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="Services\WeatherForecastModule\DtoModels\AuthenticateRequest.cs" />
+    <Compile Remove="Services\WeatherForecastModule\DtoModels\AuthenticateResponse.cs" />
+    <Compile Remove="Services\WeatherForecastModule\IUserService.cs" />
+    <Compile Remove="Entities\**" />
+    <Compile Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Entities\**" />
+    <EmbeddedResource Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Models\**" />
+    <None Remove="Entities\**" />
+    <None Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Models\**" />
+    <Content Remove="Entities\**" />
+    <Content Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\WeatherForecastModule\DtoModels" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace core_api_template.Models;
+namespace core_api_template.Services.UserModule.Models;
 
 /// <summary>
 /// Authentication request object

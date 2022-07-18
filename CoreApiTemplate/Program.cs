@@ -1,6 +1,8 @@
 ﻿using core_api_template.Helpers;
 using core_api_template.Middleware;
 using core_api_template.Services;
+using core_api_template.Services.UserModule;
+using core_api_template.Services.WeatherForecastModule;
 using Microsoft.OpenApi.Models;
 using Serilog;
 
@@ -77,6 +79,7 @@ builder.Services.AddSwaggerGen(option =>
 
     // configure DI for application services
     services.AddScoped<IUserService, UserService>();
+    services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 }
 
 var app = builder.Build();
