@@ -7,10 +7,10 @@ namespace CoreApiTemplate.Specs.Steps;
 [Binding]
 public sealed class WeatherForecastStepDefinitions : BaseFeature
 {
-    public WeatherForecastStepDefinitions(ScenarioContext scenarioContext): base(scenarioContext)
+    public WeatherForecastStepDefinitions(ScenarioContext scenarioContext) : base(scenarioContext)
     {
     }
-    
+
     [When(@"weather api is called")]
     public void WhenWeatherApiIsCalled()
     {

@@ -11,7 +11,7 @@ namespace core_api_template.Controllers;
 [Route("[controller]")]
 public class ExceptionTestController : ControllerBase
 {
-    
+
     private readonly ILogger<ExceptionTestController> _logger;
 
     public ExceptionTestController(ILogger<ExceptionTestController> logger)

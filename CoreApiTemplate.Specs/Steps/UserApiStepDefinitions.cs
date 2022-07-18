@@ -17,7 +17,7 @@ public sealed class UserApiStepDefinitions : BaseFeature
 
 
 
-    public UserApiStepDefinitions(ScenarioContext scenarioContext): base(scenarioContext)
+    public UserApiStepDefinitions(ScenarioContext scenarioContext) : base(scenarioContext)
     {
     }
 
@@ -33,7 +33,7 @@ public sealed class UserApiStepDefinitions : BaseFeature
     {
         Assert.IsTrue(Result.Contains("Unauthorized"));
     }
-    
+
     [Given(@"user is authenticated")]
     public void GivenUserIsAuthenticated()
     {
@@ -41,15 +41,15 @@ public sealed class UserApiStepDefinitions : BaseFeature
         {
             username = "test",
             password = "test"
-        
+
         }));
         content.Headers.Clear();
-        content.Headers.Add("Content-Type", "application/json"); 
+        content.Headers.Add("Content-Type", "application/json");
         var responsePost = Client.PostAsync("/Users/authenticate", content).Result;
-          
+
         var stringResultPost = responsePost.Content.ReadAsStringAsync().Result;
-        
-        var serializedResult = JsonSerializer.Deserialize<AuthenticateResponse>(stringResultPost, new JsonSerializerOptions 
+
+        var serializedResult = JsonSerializer.Deserialize<AuthenticateResponse>(stringResultPost, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         });

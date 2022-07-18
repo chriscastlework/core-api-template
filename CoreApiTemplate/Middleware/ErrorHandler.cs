@@ -33,7 +33,7 @@ public class ErrorHandlerMiddleware
             logger.LogError(result);
 
             // var result = "Internal server error";
-            switch(error)
+            switch (error)
             {
                 case AppException:
                     // custom application error
@@ -45,7 +45,7 @@ public class ErrorHandlerMiddleware
                     return;
             }
 
-        
+
             await response.WriteAsync(result);
         }
     }

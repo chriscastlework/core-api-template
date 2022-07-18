@@ -20,6 +20,6 @@ public abstract class BaseFeature
     protected readonly ScenarioContext ScenarioContext;
     protected readonly HttpClient Client;
     protected string Result = "";
-    
-    
+
+
 }
