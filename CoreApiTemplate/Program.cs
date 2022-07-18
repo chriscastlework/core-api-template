@@ -69,15 +69,15 @@ builder.Services.AddSwaggerGen(option =>
 
 // add services to DI container
 var services = builder.Services;
-    services.AddCors();
-    services.AddControllers();
+services.AddCors();
+services.AddControllers();
 
-    // configure strongly typed settings object
-    services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+// configure strongly typed settings object
+services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
-    // configure DI for application services
-    services.AddScoped<IUserService, UserService>();
-    services.AddScoped<IWeatherForecastService, WeatherForecastService>();
+// configure DI for application services
+services.AddScoped<IUserService, UserService>();
+services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 
 var app = builder.Build();
 
@@ -88,15 +88,15 @@ if (app.Environment.IsDevelopment())
 }
 // configure HTTP request pipeline
 // global cors policy
-    app.UseCors(x => x
-        .AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader());
+app.UseCors(x => x
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
-    // custom jwt auth middleware
-    app.UseMiddleware<JwtMiddleware>();
+// custom jwt auth middleware
+app.UseMiddleware<JwtMiddleware>();
 
-    app.MapControllers();
+app.MapControllers();
 
 app.UseMiddleware<ErrorHandlerMiddleware>();
 

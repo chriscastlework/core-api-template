@@ -1,6 +1,11 @@
 {
    "tasks": [
       {
+         "name": "commit-message-linter",
+         "command": "dotnet",
+         "args": ["husky", "exec", ".husky/csx/commit-lint.csx", "--args", "${args}"]
+      },
+      {
          "name": "dotnet-format-example",
          "command": "dotnet",
          "args": [ "dotnet-format", "--include", "${staged}" ],
