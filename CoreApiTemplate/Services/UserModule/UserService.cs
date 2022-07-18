@@ -1,10 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using core_api_template.Entities;
 using core_api_template.Helpers;
+using core_api_template.Services.UserModule.DtoModels;
 using core_api_template.Services.UserModule.Entity;
-using core_api_template.Services.UserModule.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 

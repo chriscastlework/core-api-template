@@ -1,7 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using core_api_template.Helpers;
-using core_api_template.Services;
 using core_api_template.Services.UserModule;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;

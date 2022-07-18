@@ -1,4 +1,4 @@
-﻿using core_api_template.Entities;
+﻿using core_api_template.Services.WeatherForecastModule.Entity;
 using NUnit.Framework;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 

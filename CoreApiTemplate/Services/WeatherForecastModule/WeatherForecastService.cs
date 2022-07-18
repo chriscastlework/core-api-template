@@ -1,5 +1,4 @@
-using core_api_template.Controllers;
-using core_api_template.Entities;
+using core_api_template.Services.WeatherForecastModule.Entity;
 
 namespace core_api_template.Services.WeatherForecastModule;
 

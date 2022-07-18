@@ -1,6 +1,5 @@
 ﻿using core_api_template.Helpers;
 using core_api_template.Middleware;
-using core_api_template.Services;
 using core_api_template.Services.UserModule;
 using core_api_template.Services.WeatherForecastModule;
 using Microsoft.OpenApi.Models;
@@ -69,8 +68,7 @@ builder.Services.AddSwaggerGen(option =>
 });
 
 // add services to DI container
-{
-    var services = builder.Services;
+var services = builder.Services;
     services.AddCors();
     services.AddControllers();
 
@@ -80,7 +78,6 @@ builder.Services.AddSwaggerGen(option =>
     // configure DI for application services
     services.AddScoped<IUserService, UserService>();
     services.AddScoped<IWeatherForecastService, WeatherForecastService>();
-}
 
 var app = builder.Build();
 
@@ -89,11 +86,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-
 // configure HTTP request pipeline
-{
-    // global cors policy
+// global cors policy
     app.UseCors(x => x
         .AllowAnyOrigin()
         .AllowAnyMethod()
@@ -103,7 +97,6 @@ if (app.Environment.IsDevelopment())
     app.UseMiddleware<JwtMiddleware>();
 
     app.MapControllers();
-}
 
 app.UseMiddleware<ErrorHandlerMiddleware>();
 

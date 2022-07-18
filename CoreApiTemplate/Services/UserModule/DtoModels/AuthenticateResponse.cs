@@ -1,7 +1,6 @@
-using core_api_template.Entities;
 using core_api_template.Services.UserModule.Entity;
 
-namespace core_api_template.Services.UserModule.Models;
+namespace core_api_template.Services.UserModule.DtoModels;
 
 public class AuthenticateResponse
 {
