@@ -2,60 +2,17 @@
 using core_api_template.Middleware;
 using core_api_template.Services.UserModule;
 using core_api_template.Services.WeatherForecastModule;
-using Microsoft.OpenApi.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // add serilog 
 core_api_template.ProgramExtensions.Serilog.SetUpSerilog(builder);
 
-builder.Services.AddEndpointsApiExplorer();
+// lies my swagger is still working!!
+// builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen(option =>
-{
-    option.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Description = "Equifinance api project",
-        Title = "Equifinance API",
-        Version = "v1",
-        Contact = new OpenApiContact
-        {
-            Name = "Example Contact",
-            Url = new Uri("https://example.com/contact")
-        },
-        License = new OpenApiLicense
-        {
-            Name = "Example License",
-            Url = new Uri("https://example.com/license")
-        }
-    });
-
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, "CoreApiTemplate.xml");
-    option.IncludeXmlComments(xmlPath);
-    option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        In = ParameterLocation.Header,
-        Description = "Please enter a valid token",
-        Name = "Authorization",
-        Type = SecuritySchemeType.Http,
-        BearerFormat = "JWT",
-        Scheme = "Bearer"
-    });
-    option.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type=ReferenceType.SecurityScheme,
-                    Id="Bearer"
-                }
-            },
-            new string[]{}
-        }
-    });
-});
+core_api_template.ProgramExtensions.Swagger.SetUpSwagger(builder);
 
 // add services to DI container
 var services = builder.Services;
