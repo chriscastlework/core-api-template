@@ -2,11 +2,24 @@
 
 Core Api Template is a scalable architecture for .net 6.0 apis with the most common non-functional requirements implemented
 
-- **Core Api Template Specs Project**: Nunit Project using spec flow for creating BDD tests
-- **Git Hooks**: Implemented git hooks using husky .net to enforce git policies
+- Logging
+- Error Handling
+- Security
+- Documentation
+- Code and library architecture
+- Testing
+- Etc
+
+### Projects
+
+- **Core Api Template Specs**: Spec flow for creating BDD tests
 - **Core Api Temple (API)**: Core Api Temple project is a .net 6.0 web api
 
-Comming next
+#### Highlight
+
+- **Git Hooks**: Implemented git hooks using husky .net to enforce git policies
+
+#### Coming next
 
 - **Core Api Temple (API)**: Change to use Orleans
 
