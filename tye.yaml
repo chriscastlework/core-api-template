@@ -5,6 +5,7 @@
 #    https://aka.ms/AA7q20u
 #
 name: core-api-template
+registry: chriscastlework
 services:
 - name: coreapitemplate
   project: CoreApiTemplate/CoreApiTemplate.csproj

@@ -6,7 +6,7 @@ Feature: User Api
     Then the result is unauthorised
     
     @mytag
-    Scenario: Authenticated users can not access user
+    Scenario: Authenticated users can view users
         Given user is authenticated
         When the user api is called
         Then the result has user data
