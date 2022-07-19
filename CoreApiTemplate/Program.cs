@@ -3,21 +3,11 @@ using core_api_template.Middleware;
 using core_api_template.Services.UserModule;
 using core_api_template.Services.WeatherForecastModule;
 using Microsoft.OpenApi.Models;
-using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseSerilog((ctx, lc) => lc
-    .WriteTo.Console()
-    .ReadFrom.Configuration(ctx.Configuration));
-
-var logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(builder.Configuration)
-    .Enrich.FromLogContext()
-    .CreateLogger();
-
-builder.Logging.ClearProviders();
-builder.Logging.AddSerilog(logger);
+// add serilog 
+core_api_template.ProgramExtensions.Serilog.SetUpSerilog(builder);
 
 builder.Services.AddEndpointsApiExplorer();
 
