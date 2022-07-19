@@ -113,14 +113,14 @@ namespace CoreApiTemplate.Specs.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Authenticated users can not access user")]
+        [NUnit.Framework.DescriptionAttribute("Authenticated users can view users")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AuthenticatedUsersCanNotAccessUser()
+        public virtual void AuthenticatedUsersCanViewUsers()
         {
             string[] tagsOfScenario = new string[] {
                     "mytag"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Authenticated users can not access user", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Authenticated users can view users", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 9
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
