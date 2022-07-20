@@ -1,5 +1,5 @@
-﻿using core_api_template.Services.WeatherForecastModule;
-using core_api_template.Services.WeatherForecastModule.Entity;
+﻿using CoreServices.WeatherForecastModule;
+using CoreServices.WeatherForecastModule.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace core_api_template.Controllers;
@@ -8,17 +8,18 @@ namespace core_api_template.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private readonly IWeatherForecastService _weatherForecastService;
+    private readonly IWeatherForecastService _service;
 
-    public WeatherForecastController(IWeatherForecastService weatherForecastService)
+
+    public WeatherForecastController(IWeatherForecastService service)
     {
-        _weatherForecastService = weatherForecastService;
+        _service = service;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
-        return _weatherForecastService.GetWeatherForecast();
+        return _service.GetWeatherForecast();
     }
 }
 

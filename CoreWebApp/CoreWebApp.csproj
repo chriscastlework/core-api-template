@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>aspnet-CoreWebApp-9A1F7A92-9998-4EA2-ABC7-5B1B248C3F54</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.7" NoWarn="NU1605" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.7" NoWarn="NU1605" />
+        <PackageReference Include="Microsoft.Identity.Web" Version="1.16.0" />
+        <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.16.0" />
+        <PackageReference Include="Microsoft.Orleans.Client" Version="3.6.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CoreApiAbstractions\CoreApiAbstractions.csproj" />
+      <ProjectReference Include="..\CoreGrainInterfaces\CoreGrainInterfaces.csproj" />
+    </ItemGroup>
+
+</Project>

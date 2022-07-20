@@ -1,5 +1,5 @@
-﻿using core_api_template.Helpers;
-using core_api_template.Services.WeatherForecastModule.Entity;
+﻿using CoreApiAbstractions.Helpers;
+using CoreServices.WeatherForecastModule.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace core_api_template.Controllers;

@@ -1,13 +1,15 @@
-# tye application configuration file
-# read all about it at https://github.com/dotnet/tye
-#
-# when you've given us a try, we'd love to know what you think:
-#    https://aka.ms/AA7q20u
-#
 name: core-api-template
-registry: chriscastlework
+#registry: chriscastlework
 services:
-- name: coreapitemplate
-  project: CoreApiTemplate/CoreApiTemplate.csproj
-  bindings:
-    - port: 7001
+  - name: CoreTemplete
+    project: CoreApiTemplate/CoreApiTemplate.csproj
+    bindings:
+        - port: 7077
+  - name: CoreSilo
+    project: CoreSilo/CoreSilo.csproj
+    bindings:
+      - port: 7088
+  - name: CoreWebApp
+    project:  CoreWebApp/CoreWebApp.csproj
+    bindings:
+      - port: 7099

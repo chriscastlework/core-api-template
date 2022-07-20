@@ -1,18 +1,16 @@
-﻿using core_api_template.Helpers;
-using core_api_template.Middleware;
-using core_api_template.Services.UserModule;
-using core_api_template.Services.WeatherForecastModule;
-
+﻿using core_api_template.Services.UserModule;
+using CoreApiAbstractions.Helpers;
+using CoreApiAbstractions.Middleware;
+using CoreApiAbstractions.Orleans;
+using CoreApiAbstractions.ProgramExtensions;
+using CoreServices.WeatherForecastModule;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // add serilog 
-core_api_template.ProgramExtensions.Serilog.SetUpSerilog(builder);
+CoreApiAbstractions.ProgramExtensions.Serilog.SetUpSerilog(builder);
 
-// lies my swagger is still working!!
-// builder.Services.AddEndpointsApiExplorer();
-
-core_api_template.ProgramExtensions.Swagger.SetUpSwagger(builder);
+Swagger.SetUpSwagger(builder);
 
 // add services to DI container
 var services = builder.Services;
@@ -24,7 +22,7 @@ services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"))
 
 // configure DI for application services
 services.AddScoped<IUserService, UserService>();
-services.AddScoped<IWeatherForecastService, WeatherForecastService>();
+builder.Services.AddSingleton<IWeatherForecastService, WeatherForecastService>();
 
 var app = builder.Build();
 

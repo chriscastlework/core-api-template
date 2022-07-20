@@ -14,7 +14,7 @@
     <PackageReference Include="Serilog.AspNetCore" Version="6.0.0" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="5.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.7" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.0" />
   </ItemGroup>
 
@@ -47,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\WeatherForecastModule\DtoModels" />
+    <ProjectReference Include="..\CoreApiAbstractions\CoreApiAbstractions.csproj" />
+    <ProjectReference Include="..\CoreGrainInterfaces\CoreGrainInterfaces.csproj" />
   </ItemGroup>
 </Project>

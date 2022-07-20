@@ -1,6 +1,6 @@
-﻿using core_api_template.Helpers;
-using core_api_template.Services.UserModule;
+﻿using core_api_template.Services.UserModule;
 using core_api_template.Services.UserModule.DtoModels;
+using CoreApiAbstractions.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace core_api_template.Controllers;

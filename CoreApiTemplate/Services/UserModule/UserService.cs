@@ -1,9 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using core_api_template.Helpers;
 using core_api_template.Services.UserModule.DtoModels;
 using core_api_template.Services.UserModule.Entity;
+using CoreApiAbstractions.Helpers;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -32,7 +32,7 @@ public class UserService : IUserService
         if (user == null) return new AuthenticateResponse();
 
         // authentication successful so generate jwt token
-        var token = this.generateJwtToken(user);
+        var token = this.GenerateJwtToken(user);
 
         return new AuthenticateResponse(user, token);
     }
@@ -54,7 +54,7 @@ public class UserService : IUserService
 
     // helper methods
 
-    private string? generateJwtToken(User user)
+    private string? GenerateJwtToken(User user)
     {
         // generate token that is valid for 7 days
         var tokenHandler = new JwtSecurityTokenHandler();
