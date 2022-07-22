@@ -4,15 +4,15 @@ using Orleans.Configuration;
 
 namespace CoreApiAbstractions.Orleans;
 
-public class ClusterClient: IClient
+public class ClusterClient : IClient
 {
     private IClusterClient Client { get; }
-    
+
     public ClusterClient()
     {
         Client = ConnectClient().Result;
     }
-    
+
     private static async Task<IClusterClient> ConnectClient()
     {
         var client = new ClientBuilder()

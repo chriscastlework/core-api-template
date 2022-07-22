@@ -27,16 +27,16 @@ public abstract class BaseFeature
         // var greeting = hello.SayHello("test").Result;
         // var weatherGrain = cluster.GrainFactory.GetGrain<IGetWeatherForecast>(Guid.NewGuid());
         // var weatherGrainResult = weatherGrain.SayHello("test").Result;
-        
+
         ScenarioContext = scenarioContext;
         var webAppFactory = new WebApplicationFactory<Program>();
         Client = webAppFactory.CreateDefaultClient();
     }
-    
+
     protected readonly ScenarioContext ScenarioContext;
     protected readonly HttpClient Client;
     protected string Result = "";
-    
+
 }
 // public class TestSiloConfigurations : ISiloConfigurator {
 //     public void Configure(ISiloBuilder siloBuilder)

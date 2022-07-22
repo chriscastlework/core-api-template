@@ -21,7 +21,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         var friend = _client.GetGrain<ICreateQuote>(Guid.NewGuid());
-        var response =  await friend.SayHello("Good morning, HelloGrain!");
+        var response = await friend.SayHello("Good morning, HelloGrain!");
         return View();
     }
 
